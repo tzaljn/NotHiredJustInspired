@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page3" onload=typeWriter()>
+
+    <h1 id = "caption"> </h1>
+    <p id="generatedLetter"></p>
+    <a href="input.html"><button>Return</button></a>
+
+    <footer class="programFooter">
+        <p>&copy; Not Hired, Just Inspired 2025</p>
+    </footer>
+
+    <script>
+                // Typewriter effect for heading
+        var i = 0;
+        var text = "Dear Dreamer";
+        var speed = 30;
+        function typeWriter(){
+            if(i<text.length){
+            document.getElementById('caption').innerHTML += text.charAt(i); i++;
+            setTimeout(typeWriter, speed);
+            }
+        }
+        function getParameterByName(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        const dreamJob = getParameterByName("job");
+        if (dreamJob) {
+            document.getElementById("generatedLetter").innerHTML = `
+                We have great news! After reviewing your application for ${dreamJob},
+                we can confidently say that… you are absolutely incredible.<br><br>
+                
+                Now for the not-so-great news: We have decided to move forward with another candidate. 
+                Not because you weren’t the perfect choice, but because our HR team ran out of coffee 
+                and started making questionable decisions.<br><br>
+
+                We considered offering you the job anyway, but then we realized… we don’t deserve you. 
+                You deserve an office with a built-in espresso machine, a chair that actually supports 
+                your spine, and a salary that doesn’t make you question your life choices. Sadly, we 
+                cannot provide that at this time.<br><br>
+
+                But don’t be discouraged! We believe in you, and we’re 99% sure your dream job is just 
+                around the corner (maybe at a place with better hiring judgment). Until then, keep being 
+                amazing, and if you ever want to apply again, please do—preferably when Mercury isn’t in 
+                retrograde.<br><br>
+                
+                Keep striving for excellence and never stop dreaming! <br><br>
+                Best wishes, <br>
+                Your Dream Company 
+            `
+        } else {
+            document.getElementById("generatedLetter").textContent = "No dream job entered. Please go back and enter one.";
+        }  
+    </script>
+
+</body>
+</html>

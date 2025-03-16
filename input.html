@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 2</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body class="page2">
+
+    <div class="container">
+        <h1>What is your dream job? </h1>
+        <input type="text" id="dreamJobInput" placeholder="Enter your dream job">
+        <button onclick="redirectToGenerator()">Enter</button>
+    </div>
+
+    <footer class="programFooter">
+        <p>&copy; Not Hired, Just Inspired 2025</p>
+    </footer>
+
+    <script>
+        function redirectToGenerator() {
+            const inputValue = document.getElementById("dreamJobInput").value.trim();
+            if (inputValue !== "") {
+                window.location.href = `generator.html?job=${encodeURIComponent(inputValue)}`;
+            } else {
+                alert("Please enter your dream job.");
+            }
+        }
+    </script>
+
+</body>
+</html>
